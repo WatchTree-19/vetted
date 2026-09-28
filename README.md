@@ -1,5 +1,7 @@
 # vetted
 
+[![tests](https://github.com/WatchTree-19/vetted/actions/workflows/tests.yml/badge.svg)](https://github.com/WatchTree-19/vetted/actions/workflows/tests.yml)
+
 **Independent validation for risk models and trading strategies.**
 
 `vetted` answers the two questions every quant result has to survive:
@@ -20,6 +22,8 @@ that checks each one says which. A validation library is only worth using if its
 own numbers are right.
 
 ```bash
+pip install vetted
+# or the latest from GitHub
 pip install git+https://github.com/WatchTree-19/vetted
 ```
 
