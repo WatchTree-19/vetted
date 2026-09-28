@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use vetted, please cite it as below."
+title: "vetted: independent validation for risk models and trading strategies"
+authors:
+  - family-names: "Singh Rai"
+    given-names: "Sandeep"
+    orcid: "https://orcid.org/0009-0001-3360-9205"
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/WatchTree-19/vetted"

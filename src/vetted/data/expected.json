@@ -1,0 +1,712 @@
+{
+ "volatility_annual": {
+  "std_ddof1": {
+   "description": "sample std (n-1) x sqrt(periods)",
+   "oracle": "R PerformanceAnalytics: StdDev.annualized(R, scale)",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": 0.13700015867969229,
+    "gaussian_neg_mean": 0.1725026424994305,
+    "gaussian_pos_mean": 0.1446432019358922,
+    "student_t3": 0.16603674261581733,
+    "regime_switch": 0.24135663311582622,
+    "left_skewed": 0.1740551797108638,
+    "all_positive": 0.037817330952134944,
+    "gaussian_n1260": 0.1747474445302633,
+    "gaussian_n500": 0.17233536552785877,
+    "tiny_sample_n7": 0.13086457754395944
+   }
+  },
+  "std_ddof0": {
+   "description": "population std (n) x sqrt(periods)",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": 0.13411562175973388,
+    "gaussian_neg_mean": 0.1724455885397091,
+    "gaussian_pos_mean": 0.14459536227791564,
+    "student_t3": 0.16598182720415625,
+    "regime_switch": 0.24127680621332334,
+    "left_skewed": 0.17399761226106333,
+    "all_positive": 0.03779231121340406,
+    "gaussian_n1260": 0.1746780865420062,
+    "gaussian_n500": 0.1721629439083726,
+    "tiny_sample_n7": 0.12115705623844132
+   }
+  }
+ },
+ "return_annual": {
+  "geometric": {
+   "description": "prod(1+r)^(periods/n) - 1 (CAGR)",
+   "oracle": "R PerformanceAnalytics: Return.annualized(R, scale, geometric=TRUE)",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": 0.10367828972980941,
+    "gaussian_neg_mean": 0.041020550635440856,
+    "gaussian_pos_mean": 0.22828963656614643,
+    "student_t3": 0.126583173855497,
+    "regime_switch": 0.01792532307011041,
+    "left_skewed": -0.9697162524798298,
+    "all_positive": 1.2735414836366195,
+    "gaussian_n1260": 0.10053749306407589,
+    "gaussian_n500": -0.20634486493601834,
+    "tiny_sample_n7": -0.9589235732751437
+   }
+  },
+  "arithmetic": {
+   "description": "mean(r) x periods",
+   "oracle": "R PerformanceAnalytics: Return.annualized(R, scale, geometric=FALSE)",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": 0.10800000000000004,
+    "gaussian_neg_mean": 0.05508108942550002,
+    "gaussian_pos_mean": 0.21615216479399998,
+    "student_t3": 0.13291865963366664,
+    "regime_switch": 0.046944020726,
+    "left_skewed": -3.457503533421667,
+    "all_positive": 0.8233893524153333,
+    "gaussian_n1260": 0.11107161455879999,
+    "gaussian_n500": -0.21615782617699203,
+    "tiny_sample_n7": -3.164751050004
+   }
+  }
+ },
+ "sharpe_annual": {
+  "arithmetic_ddof1": {
+   "description": "mean/std(n-1) x sqrt(periods)",
+   "oracle": "R PerformanceAnalytics: SharpeRatio.annualized(R, 0, scale, geometric=FALSE)",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.7883202548144859,
+    "gaussian_neg_mean": 0.3193057719430696,
+    "gaussian_pos_mean": 1.4943817746084016,
+    "student_t3": 0.800537625224432,
+    "regime_switch": 0.19450064462687353,
+    "left_skewed": -19.864410465492536,
+    "all_positive": 21.77280447045536,
+    "gaussian_n1260": 0.6356122394657637,
+    "gaussian_n500": -1.2542859413383098,
+    "tiny_sample_n7": -24.183404779195588
+   }
+  },
+  "arithmetic_ddof0": {
+   "description": "mean/std(n) x sqrt(periods)",
+   "oracle": null,
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.8052753182882781,
+    "gaussian_neg_mean": 0.3194114148812597,
+    "gaussian_pos_mean": 1.494876193736771,
+    "student_t3": 0.8008024846610337,
+    "regime_switch": 0.19456499554497067,
+    "left_skewed": -19.870982644486418,
+    "all_positive": 21.787218774894516,
+    "gaussian_n1260": 0.6358646167794478,
+    "gaussian_n500": -1.2555421118497723,
+    "tiny_sample_n7": -26.121062596434
+   }
+  },
+  "geometric": {
+   "description": "CAGR / (std(n-1) x sqrt(periods))",
+   "oracle": "R PerformanceAnalytics: SharpeRatio.annualized(R, 0, scale, geometric=TRUE)",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.7567749609123466,
+    "gaussian_neg_mean": 0.2377966507705891,
+    "gaussian_pos_mean": 1.5782949596713673,
+    "student_t3": 0.7623804939873482,
+    "regime_switch": 0.07426903018450755,
+    "left_skewed": -5.571315108752861,
+    "all_positive": 33.6761334439104,
+    "gaussian_n1260": 0.5753302621067199,
+    "gaussian_n500": -1.1973448647872673,
+    "tiny_sample_n7": -7.3276022531996965
+   }
+  }
+ },
+ "downside_deviation": {
+  "full": {
+   "description": "sqrt(sum(min(r,0)^2) / n), all periods (Sortino and Price 1994)",
+   "oracle": "R PerformanceAnalytics: DownsideDeviation(R, MAR=0, method='full')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.02293741484997819,
+    "gaussian_neg_mean": 0.0076043785029958925,
+    "gaussian_pos_mean": 0.005977120962935344,
+    "student_t3": 0.006848800322788538,
+    "regime_switch": 0.010904619442002219,
+    "left_skewed": 0.017560226536722446,
+    "all_positive": 0.0,
+    "gaussian_n1260": 0.00752957268844814,
+    "gaussian_n500": 0.008215843380730104,
+    "tiny_sample_n7": 0.014695814109866364
+   }
+  },
+  "subset": {
+   "description": "sqrt(sum(min(r,0)^2) / #losing periods)",
+   "oracle": "R PerformanceAnalytics: DownsideDeviation(R, MAR=0, method='subset')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.03553449028760649,
+    "gaussian_neg_mean": 0.010804351685599472,
+    "gaussian_pos_mean": 0.008828792773098438,
+    "student_t3": 0.010051290939361565,
+    "regime_switch": 0.015747709914052763,
+    "left_skewed": 0.017827520844392205,
+    "all_positive": 0.0,
+    "gaussian_n1260": 0.010884210857858236,
+    "gaussian_n500": 0.011221986885485008,
+    "tiny_sample_n7": 0.014695814109866364
+   }
+  }
+ },
+ "sortino_period": {
+  "full": {
+   "description": "mean / full downside deviation, per period",
+   "oracle": "R PerformanceAnalytics: SortinoRatio(R, MAR=0)",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.39237202879506533,
+    "gaussian_neg_mean": 0.028743407709437393,
+    "gaussian_pos_mean": 0.14350499028034386,
+    "student_t3": 0.07701421762746606,
+    "regime_switch": 0.017083200154075412,
+    "left_skewed": -0.7813254622917571,
+    "all_positive": null,
+    "gaussian_n1260": 0.05853723623779438,
+    "gaussian_n500": -0.10440427254344448,
+    "tiny_sample_n7": -0.8545655122490172
+   }
+  }
+ },
+ "sortino_annual": {
+  "full_ddof0": {
+   "description": "mean / sqrt(sum(min(r,0)^2)/n) x sqrt(periods)",
+   "oracle": null,
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 1.3592165786838633,
+    "gaussian_neg_mean": 0.45628745179024827,
+    "gaussian_pos_mean": 2.278071097071187,
+    "student_t3": 1.2225628035508922,
+    "regime_switch": 0.27118739522894303,
+    "left_skewed": -12.403157197359384,
+    "all_positive": null,
+    "gaussian_n1260": 0.9292498171334529,
+    "gaussian_n500": -1.6573664457753785,
+    "tiny_sample_n7": -13.565806946540524
+   }
+  },
+  "full_ddof1": {
+   "description": "mean / sqrt(sum(min(r,0)^2)/(n-1)) x sqrt(periods)",
+   "oracle": null,
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 1.3305982877182314,
+    "gaussian_neg_mean": 0.45613653812586236,
+    "gaussian_pos_mean": 2.277317642082141,
+    "student_t3": 1.2221584500410558,
+    "regime_switch": 0.2710977020248264,
+    "left_skewed": -12.39905494581759,
+    "all_positive": null,
+    "gaussian_n1260": 0.9288809940123027,
+    "gaussian_n500": -1.6557082498166595,
+    "tiny_sample_n7": -12.559496740741322
+   }
+  },
+  "subset": {
+   "description": "mean / sqrt(sum(min(r,0)^2)/#losers) x sqrt(periods)",
+   "oracle": null,
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.8773705288552711,
+    "gaussian_neg_mean": 0.3211467555434373,
+    "gaussian_pos_mean": 1.5422614234247913,
+    "student_t3": 0.8330361317867145,
+    "regime_switch": 0.1877857389156352,
+    "left_skewed": -12.217192286987101,
+    "all_positive": null,
+    "gaussian_n1260": 0.6428444041748651,
+    "gaussian_n500": -1.2133914681882394,
+    "tiny_sample_n7": -13.565806946540524
+   }
+  },
+  "losers_std_slip": {
+   "description": "mean / std of losing periods only (a slip, not a published estimator)",
+   "oracle": null,
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 1.3288378896833861,
+    "gaussian_neg_mean": 0.5232469833235646,
+    "gaussian_pos_mean": 2.540959794630124,
+    "student_t3": 1.1374202597788652,
+    "regime_switch": 0.23520590619690354,
+    "left_skewed": -20.112623686613567,
+    "all_positive": null,
+    "gaussian_n1260": 1.0835063989073135,
+    "gaussian_n500": -1.9636802133889297,
+    "tiny_sample_n7": -24.183404779195588
+   }
+  }
+ },
+ "max_drawdown": {
+  "geometric_initial_peak": {
+   "description": "compounded wealth, starting capital counts as a peak",
+   "oracle": "R PerformanceAnalytics: maxDrawdown(R, geometric=TRUE)",
+   "sign": "magnitude",
+   "values": {
+    "bacon_monthly": 0.144672955739218,
+    "gaussian_neg_mean": 0.3737837267254299,
+    "gaussian_pos_mean": 0.19010751266769133,
+    "student_t3": 0.24347305637729322,
+    "regime_switch": 0.4725532680943345,
+    "left_skewed": 0.9999999992286389,
+    "all_positive": 0.0,
+    "gaussian_n1260": 0.17460008948431183,
+    "gaussian_n500": 0.4503132377646508,
+    "tiny_sample_n7": 0.08485758410265398
+   }
+  },
+  "geometric_no_initial_peak": {
+   "description": "compounded wealth, first peak is the first period's wealth",
+   "oracle": null,
+   "sign": "magnitude",
+   "values": {
+    "bacon_monthly": 0.144672955739218,
+    "gaussian_neg_mean": 0.3737837267254299,
+    "gaussian_pos_mean": 0.19010751266769133,
+    "student_t3": 0.24347305637729322,
+    "regime_switch": 0.4725532680943345,
+    "left_skewed": 0.9999999992242397,
+    "all_positive": 0.0,
+    "gaussian_n1260": 0.17460008948431183,
+    "gaussian_n500": 0.4503132377646508,
+    "tiny_sample_n7": 0.06739841475011543
+   }
+  },
+  "simple_initial_peak": {
+   "description": "simple wealth 1+cumsum(r), starting capital counts as a peak",
+   "oracle": "R PerformanceAnalytics: maxDrawdown(R, geometric=FALSE)",
+   "sign": "magnitude",
+   "values": {
+    "bacon_monthly": 0.11737451737451732,
+    "gaussian_neg_mean": 0.3499938445424018,
+    "gaussian_pos_mean": 0.12468122892438971,
+    "student_t3": 0.2623470484476528,
+    "regime_switch": 0.40379507779658785,
+    "left_skewed": 20.745021200529994,
+    "all_positive": 0.0,
+    "gaussian_n1260": 0.12678087526662263,
+    "gaussian_n500": 0.5824756735912706,
+    "tiny_sample_n7": 0.08790975138900003
+   }
+  }
+ },
+ "calmar": {
+  "cagr_over_mdd": {
+   "description": "CAGR / geometric max drawdown (initial peak)",
+   "oracle": "R PerformanceAnalytics: CalmarRatio(R, scale)",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 0.7166390511623746,
+    "gaussian_neg_mean": 0.10974407846699355,
+    "gaussian_pos_mean": 1.2008448975143744,
+    "student_t3": 0.5199062916405004,
+    "regime_switch": 0.03793291525079883,
+    "left_skewed": -0.9697162532278312,
+    "all_positive": null,
+    "gaussian_n1260": 0.5758158163665167,
+    "gaussian_n500": -0.45822518112128263,
+    "tiny_sample_n7": -11.30038738924165
+   }
+  }
+ },
+ "var_95": {
+  "historical_interpolated": {
+   "description": "linear-interpolated 5% quantile (R type 7, numpy default)",
+   "oracle": "R PerformanceAnalytics: VaR(R, p=0.95, method='historical')",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.059199999999999996,
+    "gaussian_neg_mean": -0.0168564359764,
+    "gaussian_pos_mean": -0.013822886445,
+    "student_t3": -0.01404639597255,
+    "regime_switch": -0.01915584941575,
+    "left_skewed": -0.0352010409169,
+    "all_positive": 0.0003055249325,
+    "gaussian_n1260": -0.017714495088249998,
+    "gaussian_n500": -0.01869659331735,
+    "tiny_sample_n7": -0.0231431572788
+   }
+  },
+  "historical_order_statistic": {
+   "description": "the ceil(0.05 n)-th smallest return (lower quantile, inverted CDF)",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.061,
+    "gaussian_neg_mean": -0.016899156177,
+    "gaussian_pos_mean": -0.013837650546,
+    "student_t3": -0.014107622819,
+    "regime_switch": -0.019397772754,
+    "left_skewed": -0.035460018824,
+    "all_positive": 0.000304190294,
+    "gaussian_n1260": -0.017738677419,
+    "gaussian_n500": -0.018990356504,
+    "tiny_sample_n7": -0.025038397377
+   }
+  },
+  "historical_order_statistic_upper": {
+   "description": "the (floor(0.05 n)+1)-th smallest return (upper quantile)",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.061,
+    "gaussian_neg_mean": -0.016899156177,
+    "gaussian_pos_mean": -0.013837650546,
+    "student_t3": -0.014107622819,
+    "regime_switch": -0.019397772754,
+    "left_skewed": -0.035460018824,
+    "all_positive": 0.000304190294,
+    "gaussian_n1260": -0.017713222334,
+    "gaussian_n500": -0.018681132097,
+    "tiny_sample_n7": -0.025038397377
+   }
+  },
+  "gaussian_ddof0": {
+   "description": "mean + z(0.05) x std(n)",
+   "oracle": "R PerformanceAnalytics: VaR(R, p=0.95, method='gaussian')",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.05468189833645445,
+    "gaussian_neg_mean": -0.017649553084098196,
+    "gaussian_pos_mean": -0.014124652018258447,
+    "student_t3": -0.01667092449029876,
+    "regime_switch": -0.02481386117744588,
+    "left_skewed": -0.031749195503054606,
+    "all_positive": -0.0006484715292622172,
+    "gaussian_n1260": -0.017658691060733964,
+    "gaussian_n500": -0.018696611470125416,
+    "tiny_sample_n7": -0.02511235018285795
+   }
+  },
+  "gaussian_ddof1": {
+   "description": "mean + z(0.05) x std(n-1)",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.05605155822002584,
+    "gaussian_neg_mean": -0.01765546478941653,
+    "gaussian_pos_mean": -0.01412960897412739,
+    "student_t3": -0.016676614607737773,
+    "regime_switch": -0.0248221325248927,
+    "left_skewed": -0.03175516041418102,
+    "all_positive": -0.0006510639754875275,
+    "gaussian_n1260": -0.0176658776607535,
+    "gaussian_n500": -0.018714477115382815,
+    "tiny_sample_n7": -0.026118205089509853
+   }
+  },
+  "cornish_fisher_ddof0": {
+   "description": "mean + z_CF x std(n), moment skew and excess kurtosis",
+   "oracle": "R PerformanceAnalytics: VaR(R, p=0.95, method='modified')",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.056028994816641066,
+    "gaussian_neg_mean": -0.017858688296007796,
+    "gaussian_pos_mean": -0.014090956912190986,
+    "student_t3": -0.011973771926352109,
+    "regime_switch": -0.022445003729599275,
+    "left_skewed": -0.0348249752111839,
+    "all_positive": 0.0001338624773479357,
+    "gaussian_n1260": -0.01775783308280416,
+    "gaussian_n500": -0.018913689547799695,
+    "tiny_sample_n7": -0.0253677264644041
+   }
+  },
+  "cornish_fisher_ddof1": {
+   "description": "mean + z_CF x std(n-1), moment skew and excess kurtosis",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.057427627831611004,
+    "gaussian_neg_mean": -0.017864669194119394,
+    "gaussian_pos_mean": -0.014095902719968287,
+    "student_t3": -0.011977907981692704,
+    "regime_switch": -0.022452491335933553,
+    "left_skewed": -0.03483195775003316,
+    "all_positive": 0.0001317879616703271,
+    "gaussian_n1260": -0.017765059048329347,
+    "gaussian_n500": -0.018931772597295532,
+    "tiny_sample_n7": -0.026394042999713888
+   }
+  }
+ },
+ "es_95": {
+  "historical_below_interpolated_var": {
+   "description": "mean of returns at or below the interpolated 5% quantile",
+   "oracle": "R PerformanceAnalytics: ES(R, p=0.95, method='historical')",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.063,
+    "gaussian_neg_mean": -0.022606547831552633,
+    "gaussian_pos_mean": -0.017952162146184208,
+    "student_t3": -0.023381480767907893,
+    "regime_switch": -0.04025245327328948,
+    "left_skewed": -0.04310733663814473,
+    "all_positive": 0.00016757231826315788,
+    "gaussian_n1260": -0.022546745706507932,
+    "gaussian_n500": -0.02334007707348,
+    "tiny_sample_n7": -0.025038397377
+   }
+  },
+  "gaussian_ddof0": {
+   "description": "mean - std(n) x phi(z)/0.05",
+   "oracle": "R PerformanceAnalytics: ES(R, p=0.95, method='gaussian')",
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.07085966967069574,
+    "gaussian_neg_mean": -0.02218877867295984,
+    "gaussian_pos_mean": -0.017930785732902566,
+    "student_t3": -0.021040006724940125,
+    "regime_switch": -0.031164907104666774,
+    "left_skewed": -0.03632927447558439,
+    "all_positive": -0.0016432654673083857,
+    "gaussian_n1260": -0.02225668192242702,
+    "gaussian_n500": -0.0232283971021057,
+    "tiny_sample_n7": -0.02830152547348617
+   }
+  },
+  "gaussian_ddof1": {
+   "description": "mean - std(n-1) x phi(z)/0.05",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.0725772784216993,
+    "gaussian_neg_mean": -0.022196192189928486,
+    "gaussian_pos_mean": -0.017937001955543645,
+    "student_t3": -0.021047142361768446,
+    "regime_switch": -0.031175279708060985,
+    "left_skewed": -0.036336754714782885,
+    "all_positive": -0.001646516499463529,
+    "gaussian_n1260": -0.022265694208784808,
+    "gaussian_n500": -0.02325080134202285,
+    "tiny_sample_n7": -0.029562908106231696
+   }
+  },
+  "rockafellar_uryasev": {
+   "description": "Rockafellar-Uryasev (2002) at the order-statistic VaR",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.06433333333333334,
+    "gaussian_neg_mean": -0.022636745670994707,
+    "gaussian_pos_mean": -0.017973932048830688,
+    "student_t3": -0.023430548799383596,
+    "regime_switch": -0.04036279549825926,
+    "left_skewed": -0.04314779863716137,
+    "all_positive": 0.00016684947183068786,
+    "gaussian_n1260": -0.022546745706507935,
+    "gaussian_n500": -0.02334007707348,
+    "tiny_sample_n7": -0.025038397377
+   }
+  },
+  "naive_tail_mean_floor": {
+   "description": "mean of the floor(0.05 n)+1 smallest returns",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.063,
+    "gaussian_neg_mean": -0.022606547831552627,
+    "gaussian_pos_mean": -0.017952162146184215,
+    "student_t3": -0.023381480767907893,
+    "regime_switch": -0.04025245327328947,
+    "left_skewed": -0.04310733663814474,
+    "all_positive": 0.00016757231826315788,
+    "gaussian_n1260": -0.022471221903812504,
+    "gaussian_n500": -0.023160886882076924,
+    "tiny_sample_n7": -0.025038397377
+   }
+  },
+  "hybrid_parametric_threshold": {
+   "description": "empirical mean below the Gaussian VaR (inconsistent hybrid)",
+   "oracle": null,
+   "sign": "return",
+   "values": {
+    "bacon_monthly": -0.063,
+    "gaussian_neg_mean": -0.02333853937225373,
+    "gaussian_pos_mean": -0.018292450744299995,
+    "student_t3": -0.025779670583559327,
+    "regime_switch": -0.044505332844080654,
+    "left_skewed": -0.04027682774128038,
+    "all_positive": null,
+    "gaussian_n1260": -0.0224712219038125,
+    "gaussian_n500": -0.02334007707348,
+    "tiny_sample_n7": null
+   }
+  }
+ },
+ "omega_0": {
+  "simple": {
+   "description": "sum(max(r,0)) / sum(max(-r,0))",
+   "oracle": "R PerformanceAnalytics: Omega(R, L=0, method='simple')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 1.7797833935018055,
+    "gaussian_neg_mean": 1.0517069508734413,
+    "gaussian_pos_mean": 1.2666077432078475,
+    "student_t3": 1.1658621119747052,
+    "regime_switch": 1.0409214475471529,
+    "left_skewed": 0.0016439393455417262,
+    "all_positive": null,
+    "gaussian_n1260": 1.105069690987711,
+    "gaussian_n500": 0.8188330228537217,
+    "tiny_sample_n7": 0.0
+   }
+  }
+ },
+ "ulcer_index": {
+  "martin": {
+   "description": "sqrt(sum(drawdown^2) / n), Martin (1987)",
+   "oracle": "R PerformanceAnalytics: UlcerIndex(R)",
+   "sign": "magnitude",
+   "values": {
+    "bacon_monthly": 0.06118428726189615,
+    "gaussian_neg_mean": 0.1527977088162464,
+    "gaussian_pos_mean": 0.06190798468468445,
+    "student_t3": 0.11491110956306841,
+    "regime_switch": 0.2025747543060238,
+    "left_skewed": 0.9646878333612864,
+    "all_positive": 0.0,
+    "gaussian_n1260": 0.07635709052799335,
+    "gaussian_n500": 0.3249832264556642,
+    "tiny_sample_n7": 0.05916208868938788
+   }
+  }
+ },
+ "pain_index": {
+  "geometric_initial_peak": {
+   "description": "mean(drawdown)",
+   "oracle": "R PerformanceAnalytics: PainIndex(R)",
+   "sign": "magnitude",
+   "values": {
+    "bacon_monthly": 0.03998969068730461,
+    "gaussian_neg_mean": 0.1270219457678357,
+    "gaussian_pos_mean": 0.042391699934923796,
+    "student_t3": 0.09169382770977537,
+    "regime_switch": 0.1602960644047505,
+    "left_skewed": 0.9529951482347684,
+    "all_positive": 0.0,
+    "gaussian_n1260": 0.06298176144550136,
+    "gaussian_n500": 0.3013226642243623,
+    "tiny_sample_n7": 0.05468199313258469
+   }
+  }
+ },
+ "skewness": {
+  "moment": {
+   "description": "population moment coefficient g1",
+   "oracle": "R PerformanceAnalytics: skewness(R, method='moment')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": -0.08256245520856835,
+    "gaussian_neg_mean": -0.07916512800563558,
+    "gaussian_pos_mean": 0.00749960941518137,
+    "student_t3": 0.7924989039564913,
+    "regime_switch": -0.1191760914185099,
+    "left_skewed": -1.1828633549748069,
+    "all_positive": 1.013396672588729,
+    "gaussian_n1260": -0.026580255699257323,
+    "gaussian_n500": -0.07021431281861275,
+    "tiny_sample_n7": -0.044162689139007956
+   }
+  },
+  "adjusted_g1": {
+   "description": "adjusted Fisher-Pearson G1 (Excel SKEW, pandas .skew(); PerformanceAnalytics 'fisher')",
+   "oracle": "R PerformanceAnalytics: skewness(R, method='fisher')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": -0.08817174934967567,
+    "gaussian_neg_mean": -0.0792437645255741,
+    "gaussian_pos_mean": 0.007507058947572275,
+    "student_t3": 0.793286111119951,
+    "regime_switch": -0.1192944717372831,
+    "left_skewed": -1.1840383200148612,
+    "all_positive": 1.015412491340716,
+    "gaussian_n1260": -0.02661194707093605,
+    "gaussian_n500": -0.07042576642920344,
+    "tiny_sample_n7": -0.05724138737086073
+   }
+  },
+  "pa_sample": {
+   "description": "R PerformanceAnalytics 'sample': n/((n-1)(n-2)) x sum(((x-mean)/sd_pop)^3)",
+   "oracle": "R PerformanceAnalytics: skewness(R, method='sample')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": -0.0939841387354454,
+    "gaussian_neg_mean": -0.07932244441395143,
+    "gaussian_pos_mean": 0.007514512588418003,
+    "student_t3": 0.7940737524321461,
+    "regime_switch": -0.11941291734340133,
+    "left_skewed": -1.1852139330540823,
+    "all_positive": 1.0174305350091728,
+    "gaussian_n1260": -0.0266436594188873,
+    "gaussian_n500": -0.07063757315696932,
+    "tiny_sample_n7": -0.07213239226037965
+   }
+  }
+ },
+ "kurtosis": {
+  "excess_moment": {
+   "description": "population moment coefficient minus 3 (g2)",
+   "oracle": "R PerformanceAnalytics: kurtosis(R, method='excess')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": -0.5675462058921252,
+    "gaussian_neg_mean": 0.15527523302519608,
+    "gaussian_pos_mean": 0.07761691132140269,
+    "student_t3": 10.513273879541432,
+    "regime_switch": 9.388450076519888,
+    "left_skewed": 1.4539345625551245,
+    "all_positive": 1.0535566970210786,
+    "gaussian_n1260": -0.07271944291559995,
+    "gaussian_n500": -0.007414934133322948,
+    "tiny_sample_n7": -1.037798309087063
+   }
+  },
+  "excess_sample": {
+   "description": "adjusted excess G2 (Excel KURT, pandas .kurt())",
+   "oracle": "R PerformanceAnalytics: kurtosis(R, method='sample_excess')",
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": -0.4076603211860866,
+    "gaussian_neg_mean": 0.1597687109369921,
+    "gaussian_pos_mean": 0.08185296981863588,
+    "student_t3": 10.55210173256114,
+    "regime_switch": 9.423549398217936,
+    "left_skewed": 1.4627327964414223,
+    "all_positive": 1.0685366876119609,
+    "gaussian_n1260": -0.06823177478196096,
+    "gaussian_n500": 0.004607055512203326,
+    "tiny_sample_n7": -0.6907159418089514
+   }
+  },
+  "pearson_moment": {
+   "description": "population moment coefficient, not excess (normal = 3)",
+   "oracle": null,
+   "sign": "ratio",
+   "values": {
+    "bacon_monthly": 2.4324537941078748,
+    "gaussian_neg_mean": 3.155275233025196,
+    "gaussian_pos_mean": 3.0776169113214027,
+    "student_t3": 13.513273879541432,
+    "regime_switch": 12.388450076519888,
+    "left_skewed": 4.4539345625551245,
+    "all_positive": 4.053556697021079,
+    "gaussian_n1260": 2.9272805570844,
+    "gaussian_n500": 2.992585065866677,
+    "tiny_sample_n7": 1.962201690912937
+   }
+  }
+ }
+}
