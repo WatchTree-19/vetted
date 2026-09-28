@@ -257,8 +257,9 @@ def validate_risk_model(
         significance: Level for the statistical tests.
         missing: How statistical tests treat gaps ("raise" or "drop"). The
             regulatory counts always treat a gap as an exception (MAR32.5).
-        n_sims, seed: Monte Carlo draws for the VaR tests' p-values and the
+        n_sims: Monte Carlo draws for the VaR tests' p-values and the
             bootstrap of the exceedance residual test.
+        seed: Random seed for those draws.
     """
     rep = Report(title=title, significance=significance)
     n = int(np.asarray(pnl, dtype=float).size)
