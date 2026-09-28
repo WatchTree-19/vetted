@@ -1,0 +1,49 @@
+site_name: vetted
+site_description: Independent validation for risk models and trading strategies
+site_url: https://watchtree-19.github.io/vetted/
+repo_url: https://github.com/WatchTree-19/vetted
+repo_name: WatchTree-19/vetted
+edit_uri: ""
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Light mode
+nav:
+  - Home: index.md
+  - Risk models: risk-models.md
+  - Basel FRTB: frtb.md
+  - Strategies and overfitting: strategies.md
+  - Conformal VaR: conformal.md
+  - Metrics and conformance: metrics.md
+  - How it is verified: verification.md
+  - API reference: api.md
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: false
+            show_root_heading: true
+            heading_level: 3
+            members_order: source
+            filters: ["!^_"]

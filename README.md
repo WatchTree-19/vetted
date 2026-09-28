@@ -1,6 +1,8 @@
 # vetted
 
 [![tests](https://github.com/WatchTree-19/vetted/actions/workflows/tests.yml/badge.svg)](https://github.com/WatchTree-19/vetted/actions/workflows/tests.yml)
+[![PyPI](https://img.shields.io/pypi/v/vetted)](https://pypi.org/project/vetted/)
+[![docs](https://img.shields.io/badge/docs-watchtree--19.github.io%2Fvetted-blue)](https://watchtree-19.github.io/vetted/)
 
 **Independent validation for risk models and trading strategies.**
 
@@ -27,7 +29,7 @@ pip install vetted
 pip install git+https://github.com/WatchTree-19/vetted
 ```
 
-Requires only numpy and scipy.
+Requires only numpy and scipy. Full documentation: https://watchtree-19.github.io/vetted/
 
 ## Validate a risk model
 
